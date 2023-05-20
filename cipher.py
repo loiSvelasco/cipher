@@ -4,16 +4,10 @@ import multiprocessing
 import string
 
 def rotate(s, n):
-    # Define the valid characters
     chars = "abcdefghijklmnopqrstuvwxyz0123456789"
-    # Create a mapping of each character to its corresponding rotated character
     rotated_chars = chars[n:] + chars[:n]
-    # Create a dictionary mapping each character to its rotated character
     char_map = dict(zip(chars, rotated_chars))
-    # Apply the rotation to each character in the string
     result = "".join(char_map.get(c.lower(), c) for c in s)
-    # Apply uppercase to rotated uppercase characters
-    # result = "".join(rotated_chars[chars.index(c.lower())].upper() if c.isupper() and char_map.get(c.lower(), c).isalpha() else char_map.get(c.lower(), c) for c in s)
     return result
 
 def encrypt_chunk(chunk, key):
